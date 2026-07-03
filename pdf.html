@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>FIBEL · Litera U cu Herzchen — Fișă de lucru</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+:root{
+  --emerald:#10b981; --emerald-d:#047857; --emerald-dd:#065f46;
+  --crem:#FAF6EE; --ivory:#FBF7EF; --surface:#F5F0E8; --auriu:#D4A574; --auriu-d:#B88848;
+  --terra:#E07856; --ink:#1F1B16; --warm:#5A5147; --border:#E5DCC9;
+  --der:#2563eb; --die:#dc2626; --das:#16a34a;
+}
+body{ margin:0; font-family:'Segoe UI',Arial,sans-serif; color:var(--ink); background:#fff; }
+.sheet{ width:210mm; min-height:297mm; padding:12mm 14mm; margin:0 auto; background:#fff; page-break-after:always; }
+.sheet:last-child{ page-break-after:auto; }
+.head{ display:flex; align-items:center; gap:14px; border-bottom:3px solid var(--emerald); padding-bottom:10px; margin-bottom:14px; }
+.head img{ width:60px; height:60px; }
+.head .t{ flex:1; }
+.head .brand{ font-size:12px; color:var(--emerald-d); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+.head h1{ margin:2px 0 0; font-size:26px; color:var(--emerald-dd); }
+.head .big-letter{ font-size:46px; font-weight:800; color:var(--emerald-dd); }
+.head .big-letter .lo{ color:var(--auriu-d); }
+.sec{ margin:14px 0; }
+.sec h2{ font-size:16px; color:#fff; background:var(--emerald-d); display:inline-block; padding:5px 14px; border-radius:8px; margin:0 0 10px; }
+.sec .de-sub{ font-size:12px; color:var(--warm); font-style:italic; margin:-6px 0 8px; }
+.bilder{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.bild{ text-align:center; }
+.bild .circ{ width:78px; height:78px; border-radius:50%; background:#fff; border:4px solid var(--auriu); display:flex; align-items:center; justify-content:center; margin:0 auto 5px; }
+.bild .circ.m{ border-color:var(--der);} .bild .circ.f{ border-color:var(--die);} .bild .circ.n{ border-color:var(--das);}
+.bild .circ img{ width:54px; height:54px; }
+.bild .w{ font-size:15px; font-weight:700; }
+.bild .w .art-m{ color:var(--der);} .bild .w .art-f{ color:var(--die);} .bild .w .art-n{ color:var(--das);}
+.bild .ro{ font-size:11px; color:var(--warm); font-style:italic; }
+.grid{ border-collapse:collapse; margin:0 auto; }
+.grid td{ width:40px; height:40px; border:1.5px solid var(--border); text-align:center; font-size:20px; font-weight:600; }
+.ddd{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px 22px; }
+.ddd .row{ display:flex; align-items:center; gap:10px; font-size:18px; }
+.ddd .row img{ width:42px; height:42px; }
+.shapes{ display:inline-flex; gap:12px; margin-left:auto; }
+.shp{ width:30px; height:30px; }
+.shape-legend{ font-size:13px; color:var(--ink); margin:4px 0 10px; }
+.shape-legend svg{ width:20px; height:20px; vertical-align:-5px; }
+.silclap{ display:flex; flex-direction:column; gap:8px; }
+.sc-row{ display:flex; align-items:center; gap:12px; font-size:20px; font-weight:700; color:var(--emerald-dd); }
+.sc-row img{ width:40px; height:40px; }
+.sc-row .sc-de{ min-width:150px; }
+.sc-row .sc-de .dot{ color:var(--auriu-d); }
+.sc-circ{ width:26px; height:26px; border:2px solid var(--auriu); border-radius:50%; display:inline-block; }
+.sc-n{ font-size:12px; color:var(--warm); font-style:italic; margin-left:6px; }
+.story .s{ display:flex; align-items:center; gap:12px; padding:7px 0; border-bottom:1px dashed var(--border); }
+.story .s img{ width:44px; height:44px; }
+.story .s .de{ font-size:16px; font-weight:600; }
+.story .s .de b{ color:var(--terra); }
+.story .s .ro{ font-size:11px; color:var(--warm); font-style:italic; }
+.write .line{ font-size:40px; letter-spacing:14px; color:#dfe9e2; font-weight:700; border-bottom:1.5px solid var(--border); padding:2px 0; line-height:1.15; }
+.write .hint{ font-size:12px; color:var(--warm); margin-bottom:6px; }
+.silben{ display:flex; justify-content:center; gap:120px; margin:8px 0 4px; }
+.silben .col{ display:flex; flex-direction:column; gap:16px; }
+.silben .syl{ font-size:24px; font-weight:700; color:var(--emerald-dd); border:2px solid var(--auriu); border-radius:12px; padding:9px 0; width:96px; text-align:center; background:var(--ivory); }
+.silben .syl::after{ content:"●"; font-size:11px; color:var(--auriu-d); margin-left:6px; }
+.silben .col.right .syl::before{ content:"●"; font-size:11px; color:var(--auriu-d); margin-right:6px; }
+.silben .col.right .syl::after{ content:none; }
+.silben-key{ font-size:11px; color:var(--warm); font-style:italic; text-align:center; margin-top:2px; }
+.write-word{ font-size:34px; letter-spacing:10px; color:#dfe9e2; font-weight:700; border-bottom:1.5px solid var(--border); padding:2px 0; line-height:1.2; }
+.write-word .lead{ color:#cbd8d0; }
+.foot{ position:relative; margin-top:18px; padding-top:8px; border-top:1.5px solid var(--border); font-size:11px; color:var(--warm); text-align:center; }
+.bf-inline{ height:1.05em; width:auto; vertical-align:-0.16em; margin-right:.32em; }
+.hoer{ display:flex; flex-direction:column; gap:7px; margin-top:4px; }
+.hoer-row{ display:flex; align-items:center; gap:14px; }
+.hoer-row > img{ width:46px; height:46px; flex-shrink:0; }
+.hoer-boxes{ display:flex; gap:10px; }
+.hbox{ border:1.5px solid var(--border); border-radius:8px; padding:4px 12px; text-align:center; font-size:15px; letter-spacing:2px; color:var(--auriu-d); min-width:54px; }
+.hbox span{ display:block; font-size:9px; letter-spacing:0; color:var(--warm); font-style:italic; }
+.colorbox{ text-align:center; margin:8px 0; }
+.colorbox img{ width:100%; max-width:660px; border:2px solid var(--ink); border-radius:8px; }
+.cp-sentence{ text-align:center; font-size:24px; font-weight:700; letter-spacing:3px; color:var(--ink); margin-top:14px; }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="head">
+    <img src="images/icons/herzchen.svg" alt="Herzchen">
+    <div class="t">
+      <div class="brand"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · FIBEL · Abecedar german</div>
+      <h1>Litera U cu Herzchen</h1>
+    </div>
+    <div class="big-letter">U<span class="lo">u</span></div>
+  </div>
+
+  <div class="sec">
+    <h2>1 · Höre und wiederhole</h2>
+    <div class="de-sub">Ascultă și repetă. Spune cuvântul cu voce tare.</div>
+    <div class="bilder">
+      <div class="bild"><div class="circ f"><img src="images/icons/uhr.svg"></div><div class="w"><span class="art-f">die</span> Uhr</div><div class="ro">ceasul</div></div>
+      <div class="bild"><div class="circ m"><img src="images/icons/uhu.svg"></div><div class="w"><span class="art-m">der</span> Uhu</div><div class="ro">bufnița</div></div>
+      <div class="bild"><div class="circ n"><img src="images/icons/uboot.svg"></div><div class="w"><span class="art-n">das</span> U-Boot</div><div class="ro">submarinul</div></div>
+      <div class="bild"><div class="circ f"><img src="images/icons/ulme.svg"></div><div class="w"><span class="art-f">die</span> Ulme</div><div class="ro">ulmul</div></div>
+      <div class="bild"><div class="circ n"><img src="images/icons/ufo.svg"></div><div class="w"><span class="art-n">das</span> Ufo</div><div class="ro">OZN-ul</div></div>
+      <div class="bild"><div class="circ m"><img src="images/icons/urwald.svg"></div><div class="w"><span class="art-m">der</span> Urwald</div><div class="ro">jungla</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>2 · Suche U und u</h2>
+    <div class="de-sub">Încercuiește toți U și u din grilă.</div>
+    <table class="grid">
+      <tr><td>U</td><td>m</td><td>u</td><td>N</td><td>b</td></tr>
+      <tr><td>l</td><td>u</td><td>M</td><td>U</td><td>n</td></tr>
+      <tr><td>U</td><td>o</td><td>u</td><td>d</td><td>U</td></tr>
+      <tr><td>t</td><td>U</td><td>a</td><td>u</td><td>B</td></tr>
+      <tr><td>d</td><td>u</td><td>M</td><td>U</td><td>w</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <h2>3 · der · die · das?</h2>
+    <div class="de-sub">Colorează forma potrivită articolului — încă nu scriem cuvântul! 🎨</div>
+    <div class="ddd">
+      <div class="row"><img src="images/icons/uhr.svg"> Uhr <span class="shapes"><svg class="shp" viewBox="0 0 30 30"><polygon points="15,4 27,27 3,27" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><rect x="3" y="3" width="24" height="24" fill="none" stroke="#1F1B16" stroke-width="2"/></svg></span></div>
+      <div class="row"><img src="images/icons/uhu.svg"> Uhu <span class="shapes"><svg class="shp" viewBox="0 0 30 30"><polygon points="15,4 27,27 3,27" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><rect x="3" y="3" width="24" height="24" fill="none" stroke="#1F1B16" stroke-width="2"/></svg></span></div>
+      <div class="row"><img src="images/icons/uboot.svg"> U-Boot <span class="shapes"><svg class="shp" viewBox="0 0 30 30"><polygon points="15,4 27,27 3,27" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><rect x="3" y="3" width="24" height="24" fill="none" stroke="#1F1B16" stroke-width="2"/></svg></span></div>
+      <div class="row"><img src="images/icons/ufo.svg"> Ufo <span class="shapes"><svg class="shp" viewBox="0 0 30 30"><polygon points="15,4 27,27 3,27" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="none" stroke="#1F1B16" stroke-width="2"/></svg><svg class="shp" viewBox="0 0 30 30"><rect x="3" y="3" width="24" height="24" fill="none" stroke="#1F1B16" stroke-width="2"/></svg></span></div>
+    </div>
+    <div class="shape-legend">Colorează forma potrivită: <svg viewBox="0 0 26 26"><polygon points="13,3 24,23 2,23" fill="#2563eb"/></svg> <b style="color:#2563eb">der</b> &nbsp; <svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="11" fill="#dc2626"/></svg> <b style="color:#dc2626">die</b> &nbsp; <svg viewBox="0 0 26 26"><rect x="2" y="2" width="22" height="22" fill="#16a34a"/></svg> <b style="color:#16a34a">das</b></div>
+  </div>
+
+  <div class="foot"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · Germana pe înțelesul celor mici · © 2026 · Pagina 1/4</div>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <img src="images/icons/herzchen.svg" alt="Herzchen">
+    <div class="t">
+      <div class="brand"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · FIBEL · Abecedar german</div>
+      <h1>Litera U cu Herzchen</h1>
+    </div>
+    <div class="big-letter">U<span class="lo">u</span></div>
+  </div>
+
+  <div class="sec">
+    <h2>4 · Silben klatschen 🖐️ · Despărțire în silabe</h2>
+    <div class="de-sub">Bate din palme pentru fiecare silabă și colorează câte un cerc.</div>
+    <div class="silclap">
+      <div class="sc-row"><img src="images/icons/uhr.svg"><span class="sc-de">Uhr</span><span class="sc-circ"></span><span class="sc-n">1 silabă</span></div>
+      <div class="sc-row"><img src="images/icons/uboot.svg"><span class="sc-de">U<span class="dot">·</span>Boot</span><span class="sc-circ"></span><span class="sc-circ"></span><span class="sc-n">2 silabe</span></div>
+      <div class="sc-row"><img src="images/icons/elefant.svg"><span class="sc-de">E<span class="dot">·</span>le<span class="dot">·</span>fant</span><span class="sc-circ"></span><span class="sc-circ"></span><span class="sc-circ"></span><span class="sc-n">3 silabe</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>5 · Wo hörst du das U?</h2>
+    <div class="de-sub">Ascultă cuvântul. Încercuiește unde auzi sunetul „U" (mai ales la început).</div>
+    <div class="hoer">
+        <div class="hoer-row"><img src="images/icons/uhr.svg"><div class="hoer-boxes"><div class="hbox">●○○<span>Anfang</span></div><div class="hbox">○●○<span>Mitte</span></div><div class="hbox">○○●<span>Ende</span></div></div></div>
+        <div class="hoer-row"><img src="images/icons/uhu.svg"><div class="hoer-boxes"><div class="hbox">●○○<span>Anfang</span></div><div class="hbox">○●○<span>Mitte</span></div><div class="hbox">○○●<span>Ende</span></div></div></div>
+        <div class="hoer-row"><img src="images/icons/uboot.svg"><div class="hoer-boxes"><div class="hbox">●○○<span>Anfang</span></div><div class="hbox">○●○<span>Mitte</span></div><div class="hbox">○○●<span>Ende</span></div></div></div>
+        <div class="hoer-row"><img src="images/icons/ulme.svg"><div class="hoer-boxes"><div class="hbox">●○○<span>Anfang</span></div><div class="hbox">○●○<span>Mitte</span></div><div class="hbox">○○●<span>Ende</span></div></div></div></div>
+  </div>
+
+  <div class="sec story">
+    <h2>6 · Povestea lui Herzchen</h2>
+    <div class="de-sub">Citește propozițiile. Subliniază cuvintele cu U.</div>
+    <div class="s"><img src="images/icons/herzchen.svg"><div><div class="de">Das ist <b>Herzchen</b>.</div><div class="ro">Acesta e Herzchen (inimioara).</div></div></div>
+    <div class="s"><img src="images/icons/uhr.svg"><div><div class="de"><b>Herzchen</b> sieht eine <b>Uhr</b>.</div><div class="ro">Herzchen vede un ceas.</div></div></div>
+    <div class="s"><img src="images/icons/uhr.svg"><div><div class="de"><b>Herzchen</b> schaut auf die <b>Uhr</b>.</div><div class="ro">Herzchen se uită la ceas.</div></div></div>
+    <div class="s"><img src="images/icons/herzchen.svg"><div><div class="de"><b>Herzchen</b> ist <b>glücklich</b>.</div><div class="ro">Herzchen e fericit.</div></div></div>
+  </div>
+
+  <div class="foot"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · Germana pe înțelesul celor mici · © 2026 · Pagina 2/4</div>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <img src="images/icons/herzchen.svg" alt="Herzchen">
+    <div class="t">
+      <div class="brand"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · FIBEL · Abecedar german</div>
+      <h1>Litera U cu Herzchen</h1>
+    </div>
+    <div class="big-letter">U<span class="lo">u</span></div>
+  </div>
+
+  <div class="sec">
+    <h2>7 · Verbinde die Silben 🔗</h2>
+    <div class="de-sub">Leagă cu o linie silaba din stânga cu cea din dreapta ca să faci un cuvânt.</div>
+    <div class="silben">
+      <div class="col left"><div class="syl">U</div><div class="syl">No</div><div class="syl">Mo</div><div class="syl">O</div></div>
+      <div class="col right"><div class="syl">te</div><div class="syl">ra</div><div class="syl">na</div><div class="syl">ma</div></div>
+    </div>
+    <div class="silben-key">Cuvinte: U + te = Ute · No + ra = Nora · Mo + na = Mona · O + ma = Oma</div>
+  </div>
+
+  <div class="sec write">
+    <h2>8 · Schreibe U u</h2>
+    <div class="hint">Trasează literele (① urmează săgețile), apoi scrie-le singur pe rândurile goale.</div>
+    <div class="line">U U U U U U</div>
+    <div class="line">u u u u u u</div>
+  </div>
+
+  <div class="sec write">
+    <h2>9 · Scrie tu! ✍️</h2>
+    <div class="hint">Trasează cuvintele cenușii, apoi scrie-le singur pe rândul gol. Folosești litere învățate + U!</div>
+    <div class="write-word"><span class="lead">Ute</span> &nbsp; <span class="lead">Ufo</span> &nbsp; <span class="lead">Uli</span> &nbsp; <span class="lead">Oma</span></div>
+    <div class="line">&nbsp;</div>
+    <div class="hint" style="margin-top:10px">Și propoziții întregi — trasează, apoi scrie tu:</div>
+    <div class="write-word"><span class="lead">Ute turnt.</span></div>
+    <div class="write-word"><span class="lead">Uli turnt.</span></div>
+  </div>
+
+  <div class="foot"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · Germana pe înțelesul celor mici · © 2026 · Pagina 3/4</div>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <img src="images/icons/herzchen.svg" alt="Herzchen">
+    <div class="t">
+      <div class="brand"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · FIBEL · ABC-Geschichte mit Herzchen</div>
+      <h1>Litera U cu Herzchen</h1>
+    </div>
+    <div class="big-letter">U<span class="lo">u</span></div>
+  </div>
+
+  <div class="sec">
+    <h2>10 · Ausmalbild — colorează! 🎨</h2>
+    <div class="de-sub">ABC-Geschichte mit Herzchen — colorează imaginea și citește propoziția.</div>
+    <div class="colorbox"><img src="images/icons/herzchen-color.svg" alt="Herzchen schaut auf die Uhr"></div>
+    <div class="cp-sentence">Herzchen schaut auf die Uhr.</div>
+    <div class="de-sub" style="text-align:center;margin-top:8px">Herzchen se uită la ceas.</div>
+  </div>
+
+  <div class="foot"><img src="images/butterfly-emerald.png" class="bf-inline" alt="">Claudia Toth · Germana pe înțelesul celor mici · © 2026 · Pagina 4/4</div>
+</div>
+
+</body>
+</html>
