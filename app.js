@@ -38,9 +38,9 @@ const GRID = [
 ];
 /* despărțire în silabe (clap) — 1 → 2 → 3 silabe */
 const SPLIT = [
-  {icon:'uhr',     audio:'u-uhr',     syl:['Uhr']},
-  {icon:'uboot',   audio:'u-uboot',   syl:['U','Boot']},
-  {icon:'elefant', audio:'u-elefant', syl:['E','le','fant']},
+  {icon:'uhr',     audio:'u-uhr',     syl:['Uhr'],          sylA:['u-syl-uhr']},
+  {icon:'uboot',   audio:'u-uboot',   syl:['U','Boot'],     sylA:['u-syl-u','u-syl-boot']},
+  {icon:'elefant', audio:'u-elefant', syl:['E','le','fant'],sylA:['u-syl-e','u-syl-le','u-syl-fant']},
 ];
 const STORY = [
   {de:'Das ist <b class="m-bold">Herzchen</b>.',                                 ro:'Acesta e Herzchen (inimioara).', icon:'herzchen', audio:'st-1'},
@@ -355,7 +355,7 @@ SCREENS[6] = function(){
       el.onclick = function(){
         if (el.classList.contains('done')) return;
         if (+el.dataset.i === pos){
-          el.classList.add('done'); clap(); pos++;
+          el.classList.add('done'); clap(); if (it.sylA) play(it.sylA[pos]); pos++;
           document.getElementById('scount').textContent = pos+' / '+it.syl.length+' Silben';
           if (pos>=it.syl.length){
             ding();
